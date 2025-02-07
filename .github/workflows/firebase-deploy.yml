@@ -13,36 +13,12 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '20'  # Use LTS version or the version you need
-    - - name: Install Dependencies
-      run: npm install
-    - name: Deploy to Firebase
-      run: npm run deploy
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools
     - name: Deploy to Firebase
       run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }} --project huuuu-1fe87
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
 
-# name: Deploy Node.js App to Firebase Functions
-
-# on:
-#   push:
-#     branches:
-#       - main  # Adjust this as necessary
-
-# jobs:
-#   build_and_deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: Set up Node.js
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: '14'  # Specify your Node version
-#     - name: Install Dependencies
-#       run: npm install
-#     - name: Deploy to Firebase
-#       run: npm run deploy
-#       env:
-#        
        
