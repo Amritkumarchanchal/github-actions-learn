@@ -13,10 +13,10 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '20'  # Adjust as necessary
-    - name: Install Dependencies
-      run: npm install  # If your project has dependencies
-    - name: Build
-      run: npm run build  # If your project needs a build step
+    # - name: Install Dependencies
+    #   run: npm install  # If your project has dependencies
+    # - name: Build
+    #   run: npm run build  # If your project needs a build step
     - name: Deploy to Firebase
       run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
       env:
